@@ -1,3 +1,11 @@
+"""
+This script is written as a part of summer intern project 2017-18 for Spayee.
+Date: June 12, 2017 @ 5:15pm
+Author: Ankit Kumar Singh
+Place: Noida, India
+Purpose: To automate formal login functionality testing for "https://learn.spayee.com/store".
+"""
+
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
@@ -7,14 +15,15 @@ import os
 path = os.getcwd()
 path = path + "/chromedriver"
 
+
 class LoginTest(unittest.TestCase):
 
     @classmethod
-    def setUpClass(inst):
-        inst.driver = webdriver.Chrome(path)
-        inst.user = "ankitsingh095@outlook.com"
-        inst.pwd = "spayee123"
-        inst.driver.get("http:///learn.spayee.com")
+    def setUpClass(self):
+        self.driver = webdriver.Chrome(path)
+        self.user = "ankitsingh095@outlook.com"
+        self.pwd = "spayee123"
+        self.driver.get("http:///learn.spayee.com")
 
     def test_login_formal(self):
         assert "UPSC" in self.driver.title
@@ -29,8 +38,8 @@ class LoginTest(unittest.TestCase):
         elem.send_keys(Keys.RETURN)
 
     @classmethod
-    def tearDownClass(inst):
-        inst.driver.quit()
+    def tearDownClass(self):
+        self.driver.quit()
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
