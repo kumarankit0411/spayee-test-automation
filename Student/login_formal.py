@@ -39,6 +39,7 @@ class LoginTest(unittest.TestCase):
 
     @classmethod
     def tearDownClass(self):
+        #assert self.driver.get_log('browser')==[]
         self.driver.quit()
 
 if __name__ == "__main__":
