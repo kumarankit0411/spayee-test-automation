@@ -829,3 +829,36 @@ JavaScript warning: https://learn.spayee.com/resources/js/jquery-2.0.3.min.js, l
 JavaScript warning: https://learn.spayee.com/resources/js/jquery-2.0.3.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
 JavaScript warning: https://learn.spayee.com/resources/js/jquery-2.0.3.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
 1497373150785	Marionette	INFO	New connections will no longer be accepted
+1497424932925	geckodriver	INFO	Listening on 127.0.0.1:54757
+1497424933966	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1497424936366	Marionette	INFO	Listening on port 54770
+1497424936476	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-06-14 12:52:16.931 plugin-container[1964:49382] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x923b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-14 12:52:16.935 plugin-container[1964:49382] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9503, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+JavaScript warning: https://learn.spayee.com/resources/js/jquery-2.0.3.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://learn.spayee.com/resources/js/jquery-2.0.3.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1497424951850	Marionette	INFO	New connections will no longer be accepted
+1497425345433	geckodriver	INFO	Listening on 127.0.0.1:56585
+1497425346476	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1497425348429	Marionette	INFO	Listening on port 56599
+1497425348493	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-06-14 12:59:08.939 plugin-container[2023:51596] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9137, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-14 12:59:08.942 plugin-container[2023:51596] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9403, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+JavaScript warning: https://learn.spayee.com/resources/js/jquery-2.0.3.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://learn.spayee.com/resources/js/jquery-2.0.3.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1497425366006	Marionette	INFO	New connections will no longer be accepted
+1497447539730	geckodriver	INFO	Listening on 127.0.0.1:57793
+1497447540801	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1497447543124	Marionette	INFO	Listening on port 57806
+1497447543207	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-06-14 19:09:03.706 plugin-container[2126:57194] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9137, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-14 19:09:03.709 plugin-container[2126:57194] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9403, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+JavaScript warning: https://learn.spayee.com/resources/js/jquery-2.0.3.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://learn.spayee.com/resources/js/jquery-2.0.3.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1497447555257	Marionette	INFO	New connections will no longer be accepted
