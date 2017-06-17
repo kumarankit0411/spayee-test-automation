@@ -6,6 +6,8 @@ Place: Noida, India
 Purpose: To test the book reader for "https://learn.spayee.com/store"
 Test performed sequentially in order they are written
 Browser : Chrome
+
+Progress: open page and search verification
 """
 
 
