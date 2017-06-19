@@ -4,7 +4,6 @@ Date: June 14, 2017 @ 7:25pm
 Author: Ankit Kumar Singh
 Place: Noida, India
 Purpose: To automate mock test functionality testing for "https://learn.spayee.com/store"
-Test performed sequentially in order they are written
 Browser : Chrome
 """
 
@@ -29,7 +28,7 @@ class mock_test(unittest.TestCase):
         self.driver.maximize_window()
         self.driver.implicitly_wait(10)
         
-    def test_login_formal(self):
+    def login(self):
         assert "UPSC" in self.driver.title
         driver = self.driver
         login_button = driver.find_element_by_class_name("loginBtn")
@@ -42,6 +41,7 @@ class mock_test(unittest.TestCase):
         elem.send_keys(Keys.RETURN)
 
     def test_report_generator(self):
+        self.login()
         driver = self.driver
         time.sleep(1)
         driver.find_element_by_xpath('//*[@id="contentTabs"]//a[text()=" Assessments"]').click()

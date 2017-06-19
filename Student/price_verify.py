@@ -19,7 +19,7 @@ path = os.getcwd()
 path = path + "/geckodriver"
 print(path)
 
-class Assessment_package(unittest.TestCase) :
+class Price_verify(unittest.TestCase) :
 
     @classmethod
     def setUpClass(self):
@@ -55,6 +55,7 @@ class Assessment_package(unittest.TestCase) :
                 
     def find_elements(self):
         driver = self.driver
+        driver.find_element_by_xpath('//*[@data-value="en"]').click()
         elem = driver.find_element_by_xpath('//*[@id="authorFilter"]//*[text()="Arihant "]//parent::a//child::span')
         elem.click()
         elem = driver.find_element_by_xpath('//*[@id="priceFilter"]//*[text()="Under 100 "]//parent::a//child::span')
