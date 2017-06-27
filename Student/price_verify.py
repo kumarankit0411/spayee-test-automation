@@ -17,7 +17,6 @@ import time
 
 path = os.getcwd()
 path = path + "/geckodriver"
-print(path)
 
 class Price_verify(unittest.TestCase) :
 

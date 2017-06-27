@@ -27,8 +27,9 @@ class Cart(unittest.TestCase):
         self.user = "ankitsingh095@outlook.com"
         self.pwd = "spayee123"
     
-    def login(self, driver):
-        assert "UPSC" in self.driver.title
+    def login(self):
+        driver = self.driver
+        assert "UPSC" in driver.title
         login_button = driver.find_element_by_class_name("loginBtn")
         login_button.click()
         time.sleep(1)
@@ -39,7 +40,7 @@ class Cart(unittest.TestCase):
         elem.send_keys(Keys.RETURN)
     
     def test_addToCart(self):
-        self.login(self.driver)
+        self.login()
         driver = self.driver
         books = driver.find_elements_by_xpath('//*[@class="buyBtn has-spinner"]')
         books[0].click()
