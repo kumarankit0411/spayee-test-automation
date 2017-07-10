@@ -54,7 +54,6 @@ class Price_verify(unittest.TestCase):
                 
     def find_elements(self):
         driver = self.driver
-        driver.find_element_by_xpath('//*[@data-value="en"]').click()
         check = """document.querySelector("[data-value='{}']").click()"""
         driver.execute_script(check.format('Under100'))
         driver.execute_script(check.format('Arihant'))
