@@ -1,10 +1,9 @@
 """
 This script is written as a part of summer intern project 2017-18 for Spayee.
-Date: June 20, 2017 @ 7:00pm
+Date: July 12, 2017 @ 9:00pm
 Author: Himadri Sharma
 Place: Noida, India
 Purpose: To automate readers setting functionality testing for "https://learn.spayee.com/store"
-Test performed sequentially in order they are written
 Browser : Chrome
 """
 
