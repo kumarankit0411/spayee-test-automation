@@ -3,7 +3,7 @@ This script is written as a part of summer intern project 2017-18 for Spayee.
 Date: June 12, 2017 @ 5:15pm
 Author: Ankit Kumar Singh
 Place: Noida, India
-Purpose: To automate formal login functionality testing for "https://learn.spayee.com/store".
+Purpose: To verify if forgot password is working for "https://learn.spayee.com/store".
 """
 
 from selenium import webdriver
