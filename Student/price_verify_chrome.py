@@ -4,8 +4,7 @@ Date: June 13, 2017 @ 10:43pm
 Author: Himadri Sharma & Ankit Kumar Singh
 Place: Noida, India
 Purpose: To verify the price of every book for "https://learn.spayee.com/store".
-Tests are performed in the sequenve they are written
-Browser : Firefox(will not work with chrome as of now due to unclickability of checkboxes)
+Browser : Chrome
 """
 
 import unittest

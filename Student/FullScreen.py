@@ -3,7 +3,7 @@ This script is written as a part of summer intern project 2017-18 for Spayee.
 Date: June 20, 2017 @ 05:17pm
 Author: Ankit Kumar Singh
 Place: Noida, India
-Purpose: To verify if fullScreen button puts browser in fullscreen mode sfor any given book
+Purpose: To verify fullscreen and vice-versa button working or not
 Browser : Chrome
 """
 
@@ -28,6 +28,10 @@ class DownloadBook(unittest.TestCase) :
         driver = self.driver
         driver.find_element_by_id("fullScreenBtn").click()
         assert driver.execute_script('return document.webkitIsFullScreen')
+        time.sleep(1)
+        driver.find_element_by_id("fullScreenBtn").click()
+        assert driver.execute_script('return document.webkitIsFullScreen')==False
+        time.sleep(1)
 
     @classmethod
     def tearDownClass(self):

@@ -3,7 +3,7 @@ This script is written as a part of summer intern project 2017-18 for Spayee.
 Date: June 12, 2017 @ 5:15pm
 Author: Ankit Kumar Singh
 Place: Noida, India
-Purpose: To automate formal login functionality testing for "https://learn.spayee.com/store".
+Purpose: To verify if footer links are all working for "https://learn.spayee.com/store".
 """
 
 from selenium import webdriver
@@ -64,6 +64,7 @@ class FooterLinkTest(unittest.TestCase):
 
     '''
     Commented because linkedIn wanted to sign in
+
     def test_footer_linkedIn_link(self):
         footer = self.driver.find_elements_by_xpath('//footer//a')
         footer[6].click()
@@ -75,9 +76,13 @@ class FooterLinkTest(unittest.TestCase):
     def test_footer_googlePlus_link(self):
         footer = self.driver.find_elements_by_xpath('//footer//a')
         footer[7].click()
-        self.driver.switch_to.window(self.driver.window_handles[2])
+        self.driver.switch_to.window(self.driver.window_handles[1])
         assert "Spayee's posts" in self.driver.page_source
         self.driver.switch_to.window(self.driver.window_handles[0])
+
+    '''
+    Commented bcoz facebook asked for captcha verification
+    Conclusion: Big players don't want bots to run on their website!!
 
     def test_footer_facebook_link(self):
         footer = self.driver.find_elements_by_xpath('//footer//a')
@@ -85,17 +90,18 @@ class FooterLinkTest(unittest.TestCase):
         self.driver.switch_to.window(self.driver.window_handles[1])
         assert "Education website" in self.driver.page_source
         self.driver.switch_to.window(self.driver.window_handles[0])
-
+    '''
+    
     def test_footer_twitter_link(self):
         footer = self.driver.find_elements_by_xpath('//footer//a')
         footer[9].click()
-        self.driver.switch_to.window(self.driver.window_handles[3])
+        self.driver.switch_to.window(self.driver.window_handles[2])
         assert "Competition In Focus" in self.driver.page_source
         self.driver.switch_to.window(self.driver.window_handles[0])
         
     @classmethod
     def tearDownClass(self):
-        #assert self.driver.get_log('browser')==[]
+        print(self.driver.get_log('browser'))
         self.driver.quit()
 
 if __name__ == "__main__":

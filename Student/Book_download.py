@@ -28,6 +28,7 @@ class DownloadBook(unittest.TestCase) :
         driver = self.driver
         driver.find_element_by_id("bookDownloadBtn").click()
         android, apple = driver.find_elements_by_xpath('//*[@id="cboxContent"]//a')
+        print(android, apple)
         assert android is not None
         assert apple is not None
 

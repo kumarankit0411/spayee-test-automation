@@ -3,7 +3,7 @@ This script is written as a part of summer intern project 2017-18 for Spayee.
 Date: June 19, 2017 @ 6:59pm
 Author: Ankit Kumar Singh
 Place: Noida, India
-Purpose: To check add to cart functionality testing for "https://learn.spayee.com/store".
+Purpose: To verify addition and deletion of item from the cart for "https://learn.spayee.com/store".
 Browser : Chrome
 """
 
@@ -12,6 +12,7 @@ from selenium.webdriver.common.keys import Keys
 import unittest
 import os
 import time
+from LoginPage import Login
 
 path = os.getcwd()
 path = path + '/chromedriver'
@@ -26,37 +27,32 @@ class Cart(unittest.TestCase):
         self.driver.implicitly_wait(10)
         self.user = "ankitsingh095@outlook.com"
         self.pwd = "spayee123"
-    
-    def login(self):
-        driver = self.driver
-        assert "UPSC" in driver.title
-        login_button = driver.find_element_by_class_name("loginBtn")
-        login_button.click()
-        time.sleep(1)
-        elem = driver.find_element_by_xpath('//*[@id="cboxLoadedContent"]//form[@class="loginForm nbm"]//input[@name="email"]')
-        elem.send_keys(self.user)
-        elem = driver.find_element_by_xpath('//*[@id="cboxLoadedContent"]//form[@class="loginForm nbm"]//input[@name="password"]')
-        elem.send_keys(self.pwd)
-        elem.send_keys(Keys.RETURN)
+        self.book_count = 0
     
     def test_addToCart(self):
-        self.login()
         driver = self.driver
-        books = driver.find_elements_by_xpath('//*[@class="buyBtn has-spinner"]')
+        Login.login(driver, self.user, self.pwd)
+        books = driver.find_elements_by_class_name('buyBtn')
         books[0].click()
         time.sleep(1)
         driver.find_element_by_xpath('//*[@id="cboxContent"]//button[text()="Continue"]').click()
         time.sleep(1)
         books[1].click()
         time.sleep(1)
-        book_count = driver.find_elements_by_xpath('//*[@id="cboxContent"]//tbody/tr')
-        assert len(book_count)>1
-        assert driver.find_element_by_id('colorbox').is_displayed()
+        self.book_count = len(driver.find_elements_by_xpath('//*[@id="cboxContent"]//tbody/tr'))
+        assert self.book_count>=2
 
+    def test_removeFromCart(self):
+        driver = self.driver
+        book_count_before_removal = len(driver.find_elements_by_xpath('//*[@id="cboxContent"]//tbody/tr'))
+        driver.find_elements_by_class_name('removeItemBtn')[0].click()
+        time.sleep(1)
+        book_count_after_removal = len(driver.find_elements_by_xpath('//*[@id="cboxContent"]//tbody/tr'))
+        assert (book_count_after_removal + 1) == book_count_before_removal
+        
     @classmethod
     def tearDownClass(self):
         self.driver.quit()
-
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

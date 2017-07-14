@@ -4,7 +4,6 @@ Date: June 15, 2017 @ 7:00pm
 Author: Himadri Sharma
 Place: Noida, India
 Purpose: To automate AEP(assessment, ebooks, packages) functionality testing for "https://learn.spayee.com/store"
-Test performed sequentially in order they are written
 Browser : Chrome
 """
 
@@ -25,47 +24,45 @@ class Dropdown_check(unittest.TestCase) :
     def setUpClass(self):
         self.driver=webdriver.Chrome(path)
         self.driver.get("https://learn.spayee.com/store")
+        self.driver.implicitly_wait(10)
 
-    @classmethod
     def test_dropdown(self):
+        driver = self.driver
 
-        try:
+        assert "UPSC" in driver.title
+        elem=driver.find_elements_by_class_name('dropdown-toggle')[0]
+        hover=ActionChains(self.driver).move_to_element(elem)
+        hover.perform() #only hovering and not clikcing
 
-            elem=self.driver.find_element_by_partial_link_text("eBooks")
-            hover=ActionChains(self.driver).move_to_element(elem)
-            hover.perform()
+        elem=driver.find_element_by_partial_link_text("Assessments")
+        hover=ActionChains(self.driver).move_to_element(elem)
+        hover.perform()
+        elem.send_keys(Keys.ENTER)
+        assert driver.title == "Spayee Learn assessments"
 
-            time.sleep(4)
+        elem=driver.find_element_by_partial_link_text("Assessments")
+        hover=ActionChains(self.driver).move_to_element(elem)
+        hover.perform()
 
-            print("part 1 success")
+        elem=driver.find_element_by_partial_link_text("Packages")
+        hover=ActionChains(self.driver).move_to_element(elem)
+        hover.perform()
+        elem.send_keys(Keys.ENTER)
+        assert driver.title == "Spayee Learn packages"
 
-            elem=self.driver.find_element_by_partial_link_text("Assessments")
-            hover=ActionChains(self.driver).move_to_element(elem)
-            hover.perform()
-            elem.send_keys(Keys.ENTER)
-            time.sleep(2)
+        elem=driver.find_element_by_partial_link_text("Packages")
+        hover=ActionChains(self.driver).move_to_element(elem)
+        hover.perform()
 
-            print("part2 success")
-            elem=self.driver.find_element_by_partial_link_text("Assessments")
-            hover=ActionChains(self.driver).move_to_element(elem)
-            hover.perform()
-
-            elem=self.driver.find_element_by_partial_link_text("Packages")
-            hover=ActionChains(self.driver).move_to_element(elem)
-            hover.perform()
-            elem.send_keys(Keys.ENTER)
-            time.sleep(2)
-
-
-            print("part3 success")
-
-
-        except NoSuchElementException:
-            assert 0, "can't find input with such id"
+        elem=driver.find_element_by_partial_link_text("eBooks")
+        hover=ActionChains(self.driver).move_to_element(elem)
+        hover.perform()
+        elem.send_keys(Keys.ENTER)
+        assert driver.title == "Spayee Learn eBooks"
 
     @classmethod
     def tearDownClass(self):
-        self.driver.close()
+        self.driver.quit()
 
 if __name__ ==  "__main__":
     unittest.main()

@@ -12,6 +12,7 @@ import os
 from selenium.webdriver.common.keys import Keys
 import time
 import unittest
+from LoginPage import Login
 
 path = os.getcwd()
 path = path + '/chromedriver'
@@ -23,32 +24,19 @@ class mock_test(unittest.TestCase):
     def setUpClass(self):
         self.driver = webdriver.Chrome(path)
         self.driver.get("https://learn.spayee.com/store")
-        self.user = "ankitsingh095@outlook.com"
+        self.email = "ankitsingh095@outlook.com"
         self.pwd = "spayee123"
         self.driver.maximize_window()
         self.driver.implicitly_wait(10)
-        
-    def login(self):
-        assert "UPSC" in self.driver.title
-        driver = self.driver
-        login_button = driver.find_element_by_class_name("loginBtn")
-        login_button.click()
-        time.sleep(1)
-        elem = driver.find_element_by_xpath('//*[@id="cboxLoadedContent"]//form[@class="loginForm nbm"]//input[@name="email"]')
-        elem.send_keys(self.user)
-        elem = driver.find_element_by_xpath('//*[@id="cboxLoadedContent"]//form[@class="loginForm nbm"]//input[@name="password"]')
-        elem.send_keys(self.pwd)
-        elem.send_keys(Keys.RETURN)
 
     def test_report_generator(self):
-        self.login()
         driver = self.driver
+        Login.login(driver, self.email, self.pwd)
         time.sleep(1)
-        driver.find_element_by_xpath('//*[@id="contentTabs"]//a[text()=" Assessments"]').click()
-        elem = driver.find_elements_by_xpath('//*[@id="_page_2"]//strong[text()="TAKE TEST"]')
-        elem[0].click()
-        time.sleep(4)
-        driver.find_element_by_xpath('//*[@id="cboxLoadedContent"]//span[@class="check"]').click()
+        driver.find_element_by_xpath('//*[href="#_page_2"]').click()
+        driver.find_elements_by_xpath('//*[text()="TAKE TEST"]')[0].click()
+        #time.sleep(4)
+        driver.find_elements_by_class_name('text-muted')[1].click()
         driver.find_element_by_xpath('//*[@id="cboxContent"]//button[text()="Start"]').click()
         time.sleep(2)
         for i in range(1, 101):

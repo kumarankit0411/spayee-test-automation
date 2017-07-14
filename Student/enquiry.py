@@ -25,22 +25,19 @@ class Enquiry_test(unittest.TestCase):
         self.phone = "09876543233"
         self.query = "this is a test...please ignore"
         self.driver.get('http://learn.spayee.com/store')
+        self.driver.implicitly_wait(10)
 
     def test_enquiry(self):
         driver = self.driver
         driver.find_element_by_id('enquiry-btn').click()
         time.sleep(2)
-        elem = driver.find_element_by_xpath('//form[@class="padding20"]//input[@name="name"]')
-        elem.send_keys(self.name)
-        elem = driver.find_element_by_xpath('//form[@class="padding20"]//input[@name="email"]')
-        elem.send_keys(self.email)
-        elem = driver.find_element_by_xpath('//form[@class="padding20"]//input[@name="phone"]')
-        elem.send_keys(self.phone)
-        elem = driver.find_element_by_tag_name("textarea")
-        elem.send_keys(self.query)
-        elem = driver.find_element_by_xpath('//button[text()="OK "]')
-        elem.click()
-
+        enquiry_form = driver.find_element_by_xpath('//*[@action="/enquiry"]')
+        enquiry_form.find_element_by_name('name').send_keys(self.name)
+        enquiry_form.find_element_by_name('email').send_keys(self.email)
+        enquiry_form.find_element_by_name('phone').send_keys(self.phone)
+        enquiry_form.find_element_by_name('query').send_keys(self.query)
+        driver.find_element_by_xpath('//button[text()="OK "]').click()
+   
     @classmethod
     def tearDownClass(self):
         self.driver.quit()

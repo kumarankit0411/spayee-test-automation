@@ -3,7 +3,7 @@ This script is written as a part of summer intern project 2017-18 for Spayee.
 Date: June 12, 2017 @ 5:15pm
 Author: Ankit Kumar Singh
 Place: Noida, India
-Purpose: To automate formal login functionality testing for "https://learn.spayee.com/store".
+Purpose: To verify login for "https://learn.spayee.com/store".
 """
 
 from selenium import webdriver
@@ -21,9 +21,10 @@ class LoginTest(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         self.driver = webdriver.Chrome(path)
-        self.user = "ankitsingh095@outlook.com"
+        self.email = "ankitsingh095@outlook.com"
         self.pwd = "spayee123"
         self.driver.get("http:///learn.spayee.com")
+        self.driver.implicitly_wait(10)
 
     def test_login_formal(self):
         assert "UPSC" in self.driver.title
@@ -31,11 +32,10 @@ class LoginTest(unittest.TestCase):
         login_button = driver.find_element_by_class_name("loginBtn")
         login_button.click()
         time.sleep(1)
-        elem = driver.find_element_by_xpath('//*[@id="cboxLoadedContent"]//form[@class="loginForm nbm"]//input[@name="email"]')
-        elem.send_keys(self.user)
-        elem = driver.find_element_by_xpath('//*[@id="cboxLoadedContent"]//form[@class="loginForm nbm"]//input[@name="password"]')
-        elem.send_keys(self.pwd)
-        elem.send_keys(Keys.RETURN)
+        login_form = driver.find_elements_by_class_name('loginForm')[1]
+        login_form.find_element_by_name('email').send_keys(self.email)
+        login_form.find_element_by_name('password').send_keys(self.pwd)
+        login_form.find_elements_by_xpath('//*[@type="submit"]')[3].click()
 
     @classmethod
     def tearDownClass(self):

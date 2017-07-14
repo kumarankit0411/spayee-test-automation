@@ -3,8 +3,7 @@ This script is written as a part of summer intern project 2017-18 for Spayee.
 Date: June 19, 2017 @ 7:00pm
 Author: Himadri Sharma
 Place: Noida, India
-Purpose: To automate Sort By  functionality testing for "https://learn.spayee.com/store"
-Test performed sequentially in order they are written
+Purpose: To verify if the filter is working
 Browser : Chrome
 """
 
@@ -17,35 +16,34 @@ path = os.getcwd()
 path = path + "/chromedriver"
 
 
-class Language_check(unittest.TestCase) :
+class Author_lan_verify(unittest.TestCase) :
 
     @classmethod
-    def setUp(self):
+    def setUpClass(self):
         self.driver=webdriver.Chrome(path)
-        self.driver.get("https://learn.spayee.com/store/eBooks")
+        self.driver.get("https://learn.spayee.com/store")
         self.driver.maximize_window()
-        time.sleep(3)
+        self.driver.implicitly_wait(10)
 
-    @classmethod
     def test_language_selection(self):
-
-            elem=self.driver.find_element_by_xpath('//*[@id="langFilter"]/li/ul/li[1]/a/label')
-            elem.click()
-            time.sleep(3)
-            elem.click()
-
-            elem=self.driver.find_element_by_xpath('//*[@id="langFilter"]/li/ul/li[2]/a/label')
-            elem.click()
-            time.sleep(3)
-            elem.click()
-
-            elem=self.driver.find_element_by_xpath('//*[@id="langFilter"]/li/ul/li[3]/a/label')
-            elem.click()
-            time.sleep(3)
+        driver = self.driver
+        driver.find_elements_by_class_name('category')[0].click()
+        driver.execute_script("""document.querySelector('[data-value="en"]').click()""")
+        time.sleep(2)
+        driver.execute_script("""document.querySelector('[data-value="Alok Ranjan"]').click()""")
+        time.sleep(2)
+        books = driver.find_element_by_id('contentDataItems')
+        all_books = books.find_elements_by_class_name('book')
+        all_books[0].click()
+        driver.switch_to.window(driver.window_handles[1])
+        author = driver.find_element_by_xpath('//*[@itemprop="author"]').get_attribute('content')
+        assert author == "Alok Ranjan"
+        language = driver.find_element_by_xpath('//*[@itemprop="inLanguage"]').get_attribute('content')
+        assert language == "en"
 
     @classmethod
-    def tearDown(self):
-     self.driver.close()
+    def tearDownClass(self):
+        self.driver.quit()
 
 if __name__ ==  "__main__":
     try:

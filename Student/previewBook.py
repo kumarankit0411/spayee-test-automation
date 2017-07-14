@@ -22,18 +22,15 @@ class PreviewBookTest(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         self.driver = webdriver.Chrome(path)
-        self.driver.get("https://learn.spayee.com")
+        self.driver.get("https://learn.spayee.com/store/eBooks/description/UPSC-IAS-Topicwise-Previous-Year-Papers-1997-2014-Gk-Publications-0f56afa9-c235-470f-9987-bf4fd1d7c080")
         self.driver.implicitly_wait(10)
 
     def test_previewBook(self):
         driver = self.driver
-        books = driver.find_elements_by_xpath('//strong//parent::button//preceding-sibling::a')
-        books[0].click()
-        time.sleep(1)
-        driver.switch_to.window(driver.window_handles[1])
         assert 'Preview' in driver.page_source
         driver.find_elements_by_tag_name('strong')[0].click()
-        locked_pages = driver.find_elements_by_class_name('icon-locked')
+        slidemenu = driver.find_elements_by_class_name('slidemenu')[0]
+        locked_pages = slidemenu.find_elements_by_class_name('icon-locked')
         Reading_frame = driver.find_element_by_id('pagingContainer')
         for page in locked_pages:
             page.click()

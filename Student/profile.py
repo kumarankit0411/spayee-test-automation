@@ -12,6 +12,7 @@ from selenium.webdriver.common.keys import Keys
 import os
 import unittest
 import time
+from LoginPage import Login
     
 path = os.getcwd()
 path = path + "/chromedriver"
@@ -22,31 +23,19 @@ class AuthenticateTest(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         self.driver = webdriver.Chrome(path)
-        self.username = "ankitsingh095@outlook.com"
-        self.password = "spayee123"
+        self.email = "ankitsingh095@outlook.com"
+        self.pwd = "spayee123"
         self.driver.get("https://learn.spayee.com")
         self.driver.implicitly_wait(10)
-
-    def login(self):
-        assert "UPSC" in self.driver.title
-        driver = self.driver
-        login_button = driver.find_element_by_class_name("loginBtn")
-        login_button.click()
-        time.sleep(1)
-        elem = driver.find_element_by_xpath('//*[@id="cboxLoadedContent"]//form[@class="loginForm nbm"]//input[@name="email"]')
-        elem.send_keys(self.username)
-        elem = driver.find_element_by_xpath('//*[@id="cboxLoadedContent"]//form[@class="loginForm nbm"]//input[@name="password"]')
-        elem.send_keys(self.password)
-        elem.send_keys(Keys.RETURN)
         
     def test_new_password(self):
-        self.login()
         driver = self.driver
+        Login.login(driver, self.email, self.pwd)
         driver.find_element_by_class_name('icon-cog').click()
         time.sleep(1)
         driver.find_element_by_partial_link_text('My Profile').click()
         email = driver.find_element_by_id('email')
-        assert email.get_attribute('value') == self.username
+        assert email.get_attribute('value') == self.email
         name = driver.find_element_by_id('id_fname')
         assert name.get_attribute('value') == "Ankit Kr. Singh"
         phone = driver.find_element_by_id('id_phone')

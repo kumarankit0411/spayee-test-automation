@@ -3,8 +3,7 @@ This script is written as a part of summer intern project 2017-18 for Spayee.
 Date: June 10, 2017 @ 1:53am
 Author: Ankit Kumar Singh
 Place: Noida, India
-Purpose: To automate login and logout functionality testing for "https://learn.spayee.com/authenticate".
-Test performed sequentially in order they are written
+Purpose: To verify login through "https://learn.spayee.com/authenticate".
 Browser : Chrome
 """
 
@@ -37,9 +36,12 @@ class AuthenticateTest(unittest.TestCase):
 
     def test_logout(self):
         driver = self.driver
-        driver.find_element_by_xpath('//a[@class="dropdown-toggle"]').click()
+        driver.find_element_by_class_name('dropdown-toggle').click()
         time.sleep(1)
-        driver.find_element_by_xpath('//ul[@class="dropdown-menu inverse place-right"]//li//a[text()="Log Out"]').click()
+        
+        '''click using javascript'''
+        driver.execute_script("""document.querySelector('[href="/logout"]').click()""")
+        assert "UPSC" in driver.title
         
     @classmethod
     def tearDownClass(self):

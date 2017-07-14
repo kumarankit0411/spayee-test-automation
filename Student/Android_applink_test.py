@@ -4,7 +4,6 @@ Date: June 12, 2017 @ 6:30pm
 Author: Himadri Sharma
 Place: Noida, India
 Purpose: To automate android app link functionality testing for "https://learn.spayee.com/store"
-Test performed sequentially in order they are written
 Browser : Chrome
 """
 

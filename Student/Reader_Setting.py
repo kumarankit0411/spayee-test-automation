@@ -91,6 +91,23 @@ class ReadersSetting_check(unittest.TestCase) :
         class_name = self.driver.execute_script('return document.getElementById("pagingContainer").contentDocument.body.getAttribute("class")')
         assert class_name=="spee-txt-align-left night"
 
+    def test_search_query(self):
+        driver = self.driver
+        topics = driver.find_elements_by_xpath('//*[@class="slidemenu"]/div')
+        assert len(topics)>0
+        
+        book = driver.find_element_by_class_name('book-title')
+        title = book.get_attribute('innerHTML')
+        title = title.split()
+        
+        driver.find_element_by_xpath('//*[@title="Search Book"]').click()
+        driver.find_element_by_id('searchBookText').send_keys(title[0])
+        driver.find_element_by_id('searchBookBtn').click()
+        res = driver.find_elements_by_class_name('hi')
+        for i in res:
+            word = i.get_attribute('innerHTML').lower()
+            assert word == title[0].lower()
+
     @classmethod
     def tearDownClass(self):
         self.driver.quit()
