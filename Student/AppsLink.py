@@ -11,6 +11,7 @@ Browser : Chrome
 import unittest
 from selenium import webdriver
 import os
+import time
 
 
 path = os.getcwd()
@@ -28,6 +29,7 @@ class AppsLink(unittest.TestCase):
     def test_1_apple_link(self):
         driver = self.driver
         driver.find_element_by_class_name("icon-apple").click()
+        time.sleep(1)
         driver.switch_to.window(driver.window_handles[1])
         self.assertEqual("Spayee Learn on the App Store", driver.title)
         driver.execute_script('window.close()')
@@ -36,6 +38,7 @@ class AppsLink(unittest.TestCase):
     def test_2_android_link(self):
         driver = self.driver
         elem = driver.find_element_by_class_name("icon-android").click()
+        time.sleep(1)
         driver.switch_to.window(driver.window_handles[-1])
         self.assertEqual("UPSC IAS SSC IBPS Bank Exams – Android Apps on Google Play", driver.title)
         driver.switch_to.window(driver.window_handles[-1])    

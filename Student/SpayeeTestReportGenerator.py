@@ -34,8 +34,6 @@ from UserExist import UserExist
 # get the directory path to output report file
 dir = os.getcwd()
 
-
-
 # Get all tests
 AccessCode_test = unittest.TestLoader().loadTestsFromTestCase(AccessCode)
 MainPages_test = unittest.TestLoader().loadTestsFromTestCase(MainPages)
@@ -72,17 +70,16 @@ pyfiles = []
 for file in files:
     if file[-2:] == 'py' and file not in support_files:
         pyfiles.append(locals()[file[:-3]+'_test'])
-        
+
 # create a test suite combining all files from 'pyfiles' list created earlier
 test_suite = unittest.TestSuite(pyfiles)
 
-
 # Get date and time
 date = time.strftime('%d-%m-%Y')
-time_ = time.strftime('%H:%M')
+time_ = time.strftime('%H-%M')
+filename = '{}_{}.html'.format(date, time_)
 # open the report file(dir[:-8] is used to get rid of parent folder names which is 8 letters long)
-outfile = open(dir[:-8] + "/Report/{}({}).html".format(date, time_), "w")
-
+outfile = open(dir[:-8] + "/Report/{}".format(filename), "w")
 
 # configure HTMLTestRunner options
 runner = HTMLTestRunner.HTMLTestRunner(stream=outfile,title='Test Report', description='Acceptance Tests')
@@ -90,3 +87,7 @@ runner = HTMLTestRunner.HTMLTestRunner(stream=outfile,title='Test Report', descr
 # run the suite using HTMLTestRunner
 runner.run(test_suite)
 
+# open report
+os.chdir('..')
+os.chdir('Report')
+os.system('open {}'.format(filename))
