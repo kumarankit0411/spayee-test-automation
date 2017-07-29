@@ -75,9 +75,13 @@ for file in files:
         
 # create a test suite combining all files from 'pyfiles' list created earlier
 test_suite = unittest.TestSuite(pyfiles)
- 
-# open the report file
-outfile = open(dir[:-8] + "./Report/{}.html".format(time.strftime('%d-%m-%Y')), "w")
+
+
+# Get date and time
+date = time.strftime('%d-%m-%Y')
+time_ = time.strftime('%H:%M')
+# open the report file(dir[:-8] is used to get rid of parent folder names which is 8 letters long)
+outfile = open(dir[:-8] + "/Report/{}({}).html".format(date, time_), "w")
 
 
 # configure HTMLTestRunner options
