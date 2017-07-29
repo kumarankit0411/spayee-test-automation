@@ -13,9 +13,10 @@ import os
 import unittest
 import time
 from LoginPage import Login
-    
-path = os.getcwd()
-path = path + "/chromedriver"
+from PathCreator import Path
+
+
+path = Path.returnPath()
 
 
 class ChangePassword(unittest.TestCase):

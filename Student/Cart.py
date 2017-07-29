@@ -13,9 +13,10 @@ import unittest
 import os
 import time
 from LoginPage import Login
+from PathCreator import Path
 
-path = os.getcwd()
-path = path + '/chromedriver'
+
+path = Path.returnPath()
 
 
 class Cart(unittest.TestCase):

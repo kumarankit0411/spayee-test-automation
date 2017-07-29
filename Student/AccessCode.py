@@ -12,10 +12,11 @@ import time
 import unittest
 import os
 from LoginPage import Login
+from PathCreator import Path
 
-path = os.getcwd()
-path = path + "/chromedriver"
 
+path = Path.returnPath()
+    
 
 class AccessCode(unittest.TestCase):
     

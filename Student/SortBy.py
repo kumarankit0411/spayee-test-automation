@@ -12,9 +12,10 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 import os
 from selenium.common.exceptions import NoSuchElementException
+from PathCreator import Path
 
-path = os.getcwd()
-path = path + "/chromedriver"
+
+path = Path.returnPath()
 
 
 class SortBy(unittest.TestCase) :

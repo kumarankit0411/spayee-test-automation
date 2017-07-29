@@ -11,9 +11,10 @@ import unittest
 from selenium import webdriver
 import os
 import time
+from PathCreator import Path
 
-path = os.getcwd()
-path = path + "/chromedriver"
+
+path = Path.returnPath()
 
 
 class FullScreenReader(unittest.TestCase) :

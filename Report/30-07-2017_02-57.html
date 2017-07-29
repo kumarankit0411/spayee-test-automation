@@ -1,0 +1,1218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Test Report</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { overflow: auto;}
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>Test Report</h1>
+<p class='attribute'><strong>Start Time:</strong> 2017-07-30 02:57:23</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:00.046855</p>
+<p class='attribute'><strong>Status:</strong> Error 27</p>
+
+<p class='description'>Acceptance Tests</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='errorClass'>
+    <td>unittest.suite._ErrorHolder</td>
+    <td>27</td>
+    <td>0</td>
+    <td>0</td>
+    <td>27</td>
+    <td><a href="javascript:showClassDetail('c1',27)">Detail</a></td>
+</tr>
+
+<tr id='ft1.1' class='none'>
+    <td class='errorCase'><div class='testcase'>AccessCode)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+        error</a>
+
+    <div id='div_ft1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.1: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\AccessCode.py", line 24, in setUpClass
+    self.driver = webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.2' class='none'>
+    <td class='errorCase'><div class='testcase'>AppsLink)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
+        error</a>
+
+    <div id='div_ft1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.2: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\AppsLink.py", line 25, in setUpClass
+    self.driver = webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.3' class='none'>
+    <td class='errorCase'><div class='testcase'>AuthLogin)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.3')" >
+        error</a>
+
+    <div id='div_ft1.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.3: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\AuthLogin.py", line 24, in setUpClass
+    self.driver = webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.4' class='none'>
+    <td class='errorCase'><div class='testcase'>AuthSignUp)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.4')" >
+        error</a>
+
+    <div id='div_ft1.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.4: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\AuthSignUp.py", line 24, in setUpClass
+    self.driver = webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.5' class='none'>
+    <td class='errorCase'><div class='testcase'>BookSuggestion)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.5')" >
+        error</a>
+
+    <div id='div_ft1.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.5: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\BookSuggestion.py", line 24, in setUpClass
+    self.driver = webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.6' class='none'>
+    <td class='errorCase'><div class='testcase'>Cart)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.6')" >
+        error</a>
+
+    <div id='div_ft1.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.6: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\Cart.py", line 25, in setUpClass
+    self.driver = webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.7' class='none'>
+    <td class='errorCase'><div class='testcase'>ChangePassword)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.7')" >
+        error</a>
+
+    <div id='div_ft1.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.7: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\ChangePassword.py", line 25, in setUpClass
+    self.driver = webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.8' class='none'>
+    <td class='errorCase'><div class='testcase'>CheckTabs)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.8')" >
+        error</a>
+
+    <div id='div_ft1.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.8: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\CheckTabs.py", line 23, in setUpClass
+    self.driver=webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.9' class='none'>
+    <td class='errorCase'><div class='testcase'>DiscussionCreation)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.9')" >
+        error</a>
+
+    <div id='div_ft1.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.9: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\DiscussionCreation.py", line 26, in setUpClass
+    self.driver = webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.10' class='none'>
+    <td class='errorCase'><div class='testcase'>DownloadBook)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.10')" >
+        error</a>
+
+    <div id='div_ft1.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.10: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\DownloadBook.py", line 23, in setUpClass
+    self.driver = webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.11' class='none'>
+    <td class='errorCase'><div class='testcase'>Enquiry)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.11')" >
+        error</a>
+
+    <div id='div_ft1.11' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.11').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.11: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\Enquiry.py", line 22, in setUpClass
+    self.driver = webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.12' class='none'>
+    <td class='errorCase'><div class='testcase'>Filter)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.12')" >
+        error</a>
+
+    <div id='div_ft1.12' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.12').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.12: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\Filter.py", line 23, in setUpClass
+    self.driver=webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.13' class='none'>
+    <td class='errorCase'><div class='testcase'>Footer)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.13')" >
+        error</a>
+
+    <div id='div_ft1.13' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.13').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.13: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\Footer.py", line 23, in setUpClass
+    self.driver = webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.14' class='none'>
+    <td class='errorCase'><div class='testcase'>ForgotPassword)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.14')" >
+        error</a>
+
+    <div id='div_ft1.14' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.14').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.14: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\ForgotPassword.py", line 23, in setUpClass
+    self.driver = webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.15' class='none'>
+    <td class='errorCase'><div class='testcase'>FormalLogin)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.15')" >
+        error</a>
+
+    <div id='div_ft1.15' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.15').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.15: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\FormalLogin.py", line 23, in setUpClass
+    self.driver = webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.16' class='none'>
+    <td class='errorCase'><div class='testcase'>FormalSignUp)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.16')" >
+        error</a>
+
+    <div id='div_ft1.16' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.16').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.16: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\FormalSignUp.py", line 22, in setUpClass
+    self.driver = webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.17' class='none'>
+    <td class='errorCase'><div class='testcase'>FullScreenReader)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.17')" >
+        error</a>
+
+    <div id='div_ft1.17' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.17').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.17: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\FullScreenReader.py", line 23, in setUpClass
+    self.driver = webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.18' class='none'>
+    <td class='errorCase'><div class='testcase'>LeftClick)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.18')" >
+        error</a>
+
+    <div id='div_ft1.18' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.18').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.18: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\LeftClick.py", line 25, in setUpClass
+    self.driver=webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.19' class='none'>
+    <td class='errorCase'><div class='testcase'>MainPages)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.19')" >
+        error</a>
+
+    <div id='div_ft1.19' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.19').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.19: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\MainPages.py", line 25, in setUpClass
+    self.driver=webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.20' class='none'>
+    <td class='errorCase'><div class='testcase'>MockTest)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.20')" >
+        error</a>
+
+    <div id='div_ft1.20' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.20').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.20: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\MockTest.py", line 25, in setUpClass
+    self.driver = webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.21' class='none'>
+    <td class='errorCase'><div class='testcase'>PreviewBook)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.21')" >
+        error</a>
+
+    <div id='div_ft1.21' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.21').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.21: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\PreviewBook.py", line 24, in setUpClass
+    self.driver = webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.22' class='none'>
+    <td class='errorCase'><div class='testcase'>PriceVerify)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.22')" >
+        error</a>
+
+    <div id='div_ft1.22' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.22').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.22: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\PriceVerify.py", line 24, in setUpClass
+    self.driver = webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.23' class='none'>
+    <td class='errorCase'><div class='testcase'>Profile)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.23')" >
+        error</a>
+
+    <div id='div_ft1.23' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.23').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.23: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\Profile.py", line 25, in setUpClass
+    self.driver = webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.24' class='none'>
+    <td class='errorCase'><div class='testcase'>Query)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.24')" >
+        error</a>
+
+    <div id='div_ft1.24' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.24').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.24: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\Query.py", line 24, in setUpClass
+    self.driver = webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.25' class='none'>
+    <td class='errorCase'><div class='testcase'>ReaderSetting)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.25')" >
+        error</a>
+
+    <div id='div_ft1.25' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.25').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.25: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\ReaderSetting.py", line 24, in setUpClass
+    self.driver=webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.26' class='none'>
+    <td class='errorCase'><div class='testcase'>SortBy)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.26')" >
+        error</a>
+
+    <div id='div_ft1.26' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.26').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.26: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\SortBy.py", line 24, in setUpClass
+    self.driver=webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.27' class='none'>
+    <td class='errorCase'><div class='testcase'>UserExist)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.27')" >
+        error</a>
+
+    <div id='div_ft1.27' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.27').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.27: Traceback (most recent call last):
+  File "D:\github-repos\spayee-test-automation\Student\UserExist.py", line 22, in setUpClass
+    self.driver = webdriver.Chrome(path)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 62, in __init__
+    self.service.start()
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\site-packages\selenium\webdriver\common\service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Ankit\AppData\Local\Programs\Python\Python36-32\lib\subprocess.py", line 990, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>27</td>
+    <td>0</td>
+    <td>0</td>
+    <td>27</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>

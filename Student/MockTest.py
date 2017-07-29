@@ -13,9 +13,10 @@ from selenium.webdriver.common.keys import Keys
 import time
 import unittest
 from LoginPage import Login
+from PathCreator import Path
 
-path = os.getcwd()
-path = path + '/chromedriver'
+
+path = Path.returnPath()
 
 
 class MockTest(unittest.TestCase):
@@ -45,7 +46,7 @@ class MockTest(unittest.TestCase):
         driver.execute_script('document.getElementById("submitBtn").click()') 
         time.sleep(2)
         driver.find_element_by_xpath('//*[@id="cboxContent"]//button[text()="Submit "]').click()
-        time.sleep(1)
+        time.sleep(2)
         assert "Your Last Attempt" in driver.page_source    #report page contains this phrase
 
     @classmethod

@@ -10,12 +10,13 @@ Browser : Chrome
 import unittest
 from selenium import webdriver
 import os
-from selenium.webdriver.common.by import By
+from selenium.webdriver import ActionChains
 import re
 import time
+from PathCreator import Path
 
-path = os.getcwd()
-path = path + "/chromedriver"
+
+path = Path.returnPath()
 
 class PriceVerify(unittest.TestCase):
 
@@ -23,14 +24,18 @@ class PriceVerify(unittest.TestCase):
     def setUpClass(self):
         self.driver = webdriver.Chrome(path)
         self.driver.get("https://learn.spayee.com/store")
-        self.driver.maximize_window()
         self.driver.implicitly_wait(10)
 
     def test_ebooks_price(self):
         driver = self.driver
         elem = driver.find_element_by_partial_link_text("eBooks").click()
         #price verification
-        driver.find_element_by_xpath('//label[text()="Free eBooks"]//following-sibling::a').click()
+        viewAll = driver.find_element_by_xpath('//label[text()="Free eBooks"]//following-sibling::a')
+        pos = viewAll.location_once_scrolled_into_view
+        x_cord = pos['x']
+        y_cord = pos['y']
+        driver.execute_script('window.scrollTo({}, {});'.format(x_cord, y_cord-100))
+        viewAll.click()
         self.verify_price()
     
     def verify_price(self):

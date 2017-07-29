@@ -64,7 +64,7 @@ UserExist_test = unittest.TestLoader().loadTestsFromTestCase(UserExist)
 SortBy_test = unittest.TestLoader().loadTestsFromTestCase(SortBy)
 
 #code to get all test files name into a list 'pyfiles'
-support_files = ['HTMLTestRunner.py', 'LoginPage.py', 'SpayeeTestReportGenerator.py']
+support_files = ['PathCreator.py','HTMLTestRunner.py', 'LoginPage.py', 'SpayeeTestReportGenerator.py']
 files = os.listdir(dir)
 pyfiles = []
 for file in files:
@@ -87,7 +87,14 @@ runner = HTMLTestRunner.HTMLTestRunner(stream=outfile,title='Test Report', descr
 # run the suite using HTMLTestRunner
 runner.run(test_suite)
 
+# close the file so another it can be opened from cmd or terminal
+outfile.close()
+
 # open report
 os.chdir('..')
 os.chdir('Report')
-os.system('open {}'.format(filename))
+if os.name=='nt':
+    os.system('{}'.format(filename))
+else:
+    os.system('open {}'.format(filename))
+    

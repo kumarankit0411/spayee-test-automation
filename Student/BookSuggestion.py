@@ -12,10 +12,10 @@ from selenium.webdriver.common.keys import Keys
 import os
 import unittest
 import time
+from PathCreator import Path
 
-path = os.getcwd()
-path = path + "/chromedriver"
 
+path = Path.returnPath()
 
 class BookSuggestion(unittest.TestCase):
 

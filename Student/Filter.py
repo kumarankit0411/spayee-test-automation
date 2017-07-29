@@ -11,9 +11,10 @@ import unittest
 from selenium import webdriver
 import time
 import os
+from PathCreator import Path
 
-path = os.getcwd()
-path = path + "/chromedriver"
+
+path = Path.returnPath()
 
 
 class Filter(unittest.TestCase) :
@@ -46,7 +47,5 @@ class Filter(unittest.TestCase) :
         self.driver.quit()
 
 if __name__ ==  "__main__":
-    try:
-        unittest.main()
-    except:
-        print("some error")        
+    unittest.main()
+            

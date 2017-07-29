@@ -11,9 +11,10 @@ from selenium.webdriver.common.keys import Keys
 import time
 import unittest
 import os
+from PathCreator import Path
 
-path = os.getcwd()
-path = path + "/chromedriver"
+
+path = Path.returnPath()
 
 
 class Footer(unittest.TestCase):

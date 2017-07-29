@@ -13,9 +13,10 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import ActionChains
 import os
 import time
+from PathCreator import Path
 
-path=os.getcwd()
-path = path + "/chromedriver"
+
+path = Path.returnPath()
 
 
 class MainPages(unittest.TestCase) :

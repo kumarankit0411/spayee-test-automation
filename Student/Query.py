@@ -12,9 +12,10 @@ from selenium import webdriver
 import unittest
 from selenium.webdriver.common.keys import Keys
 import os
+from PathCreator import Path
 
-path = os.getcwd()
-path = path + "/chromedriver"
+
+path = Path.returnPath()
 
 
 class Query(unittest.TestCase):
