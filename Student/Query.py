@@ -17,7 +17,7 @@ path = os.getcwd()
 path = path + "/chromedriver"
 
 
-class Query_box_test(unittest.TestCase):
+class Query(unittest.TestCase):
 
     @classmethod   
     def setUpClass(self):

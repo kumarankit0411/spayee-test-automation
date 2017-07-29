@@ -18,7 +18,7 @@ path = os.getcwd()
 path = path + "/chromedriver"
 
 
-class SortBy_check(unittest.TestCase) :
+class LeftClick(unittest.TestCase) :
 
     @classmethod
     def setUpClass(self):

@@ -16,7 +16,7 @@ path = os.getcwd()
 path = path + "/chromedriver"
 
 
-class DownloadBook(unittest.TestCase) :
+class FullScreenReader(unittest.TestCase) :
 
     @classmethod
     def setUpClass(self):

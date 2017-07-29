@@ -17,7 +17,7 @@ path = os.getcwd()
 path = path + "/chromedriver"
 
 
-class AuthenticateTest(unittest.TestCase):
+class AuthLogin(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):

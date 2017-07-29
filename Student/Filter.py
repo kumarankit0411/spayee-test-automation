@@ -16,7 +16,7 @@ path = os.getcwd()
 path = path + "/chromedriver"
 
 
-class Author_lan_verify(unittest.TestCase) :
+class Filter(unittest.TestCase) :
 
     @classmethod
     def setUpClass(self):

@@ -1,7 +1,7 @@
 """
 This script is written as a part of summer intern project 2017-18 for Spayee.
-Date: June 12, 2017 @ 5:15pm
-Author: Ankit Kumar Singh
+Date: July 12, 2017 @ 7:15pm
+Author: Himadri Sharma
 Place: Noida, India
 Purpose: To verify if footer links are all working for "https://learn.spayee.com/store".
 """
@@ -16,7 +16,7 @@ path = os.getcwd()
 path = path + "/chromedriver"
 
 
-class FooterLinkTest(unittest.TestCase):
+class Footer(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
@@ -64,7 +64,6 @@ class FooterLinkTest(unittest.TestCase):
 
     '''
     Commented because linkedIn wanted to sign in
-
     def test_footer_linkedIn_link(self):
         footer = self.driver.find_elements_by_xpath('//footer//a')
         footer[6].click()
@@ -101,7 +100,6 @@ class FooterLinkTest(unittest.TestCase):
         
     @classmethod
     def tearDownClass(self):
-        print(self.driver.get_log('browser'))
         self.driver.quit()
 
 if __name__ == "__main__":

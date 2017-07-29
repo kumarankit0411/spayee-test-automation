@@ -17,7 +17,7 @@ path = os.getcwd()
 path = path + "/chromedriver"
 
 
-class PreviewBookTest(unittest.TestCase):
+class PreviewBook(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):

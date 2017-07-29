@@ -15,7 +15,7 @@ path = os.getcwd()
 path = path + "/chromedriver"
 
 
-class UserExistTest(unittest.TestCase):
+class UserExist(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):

@@ -15,7 +15,7 @@ path = os.getcwd()
 path = path + "/chromedriver"
 
 
-class SignuUpTest(unittest.TestCase):
+class FormalSignUp(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
@@ -40,8 +40,11 @@ class SignuUpTest(unittest.TestCase):
         driver.find_elements_by_name('fname')[1].send_keys(self.name)
         driver.find_elements_by_name('phone')[1].send_keys(self.phone)
         driver.find_elements_by_xpath('//*[@class="form-actions"]/button')[4].click()
-        time.sleep(5)
-        assert "My Library" in driver.page_source
+        time.sleep(1)
+        if driver.find_element_by_class_name('noty_text').is_displayed():
+            pass
+        else:
+            assert "My Library" in driver.page_source
 
     @classmethod
     def tearDownClass(self):

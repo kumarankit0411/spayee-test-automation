@@ -56,7 +56,6 @@ class DiscussionCreation(unittest.TestCase):
 
     @classmethod
     def tearDownClass(self):
-        #console shows error or thumbnail missing always
         self.driver.quit()
 
 if __name__ == "__main__":

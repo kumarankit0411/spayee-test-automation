@@ -17,19 +17,19 @@ path = os.getcwd()
 path = path + "/chromedriver"
 
 
-class LoginTest(unittest.TestCase):
-
+class AccessCode(unittest.TestCase):
+    
     @classmethod
     def setUpClass(self):
         self.driver = webdriver.Chrome(path)
         self.user = "ankitsingh095@outlook.com"
         self.pwd = "spayee123"
         self.driver.get("http:///learn.spayee.com/store")
-        self.driver.implicitly_wait(10)  
+        self.driver.implicitly_wait(10)
+        Login.login(self.driver, self.user, self.pwd)
 
     def test_sample(self):
         driver = self.driver
-        Login.login(driver, self.user, self.pwd)
         driver.find_element_by_class_name("icon-gift").click()
         elem = driver.find_element_by_name('code')
         elem.send_keys("samplecode")
@@ -38,7 +38,7 @@ class LoginTest(unittest.TestCase):
         try:
             assert "Invalid Access Code" in driver.page_source
         except AssertionError:
-            pass
+            self.fail("code is valid")
 
     @classmethod
     def tearDownClass(self):

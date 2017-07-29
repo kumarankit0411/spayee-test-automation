@@ -18,7 +18,7 @@ path = os.getcwd()
 path = path + "/chromedriver"
 
 
-class AuthenticateTest(unittest.TestCase):
+class Profile(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
@@ -28,7 +28,7 @@ class AuthenticateTest(unittest.TestCase):
         self.driver.get("https://learn.spayee.com")
         self.driver.implicitly_wait(10)
         
-    def test_new_password(self):
+    def test_verify_profile(self):
         driver = self.driver
         Login.login(driver, self.email, self.pwd)
         driver.find_element_by_class_name('icon-cog').click()

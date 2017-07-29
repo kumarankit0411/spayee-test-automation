@@ -17,7 +17,7 @@ path=os.getcwd()
 path = path + "/chromedriver"
 
 
-class ReadersSetting_check(unittest.TestCase) :
+class ReaderSetting(unittest.TestCase) :
 
     @classmethod
     def setUpClass(self):
@@ -39,7 +39,7 @@ class ReadersSetting_check(unittest.TestCase) :
 
     def test_line_height(self):
         self.driver.find_element_by_xpath('//*[@id="readerSettingsBtn"]').click()
-        time.sleep(1)
+        time.sleep(3)
 
         '''small line height'''
         self.driver.find_element_by_xpath('//*[@id="lineHeightChange"]/button[1]').click()

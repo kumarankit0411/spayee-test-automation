@@ -18,7 +18,7 @@ path = os.getcwd()
 path = path + '/chromedriver'
 
 
-class mock_test(unittest.TestCase):
+class MockTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
@@ -33,9 +33,9 @@ class mock_test(unittest.TestCase):
         driver = self.driver
         Login.login(driver, self.email, self.pwd)
         time.sleep(1)
-        driver.find_element_by_xpath('//*[href="#_page_2"]').click()
+        driver.find_element_by_xpath('//*[@href="#_page_2"]').click()
         driver.find_elements_by_xpath('//*[text()="TAKE TEST"]')[0].click()
-        #time.sleep(4)
+        time.sleep(4)
         driver.find_elements_by_class_name('text-muted')[1].click()
         driver.find_element_by_xpath('//*[@id="cboxContent"]//button[text()="Start"]').click()
         time.sleep(2)

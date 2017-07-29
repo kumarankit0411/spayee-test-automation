@@ -16,7 +16,7 @@ path = os.getcwd()
 path = path + "/chromedriver"
 
 
-class Assement_package(unittest.TestCase) :
+class CheckTabs(unittest.TestCase) :
 
     @classmethod
     def setUpClass(self):

@@ -17,7 +17,7 @@ import time
 path = os.getcwd()
 path = path + "/chromedriver"
 
-class Price_verify(unittest.TestCase):
+class PriceVerify(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):

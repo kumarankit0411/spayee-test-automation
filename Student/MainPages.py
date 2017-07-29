@@ -18,7 +18,7 @@ path=os.getcwd()
 path = path + "/chromedriver"
 
 
-class Dropdown_check(unittest.TestCase) :
+class MainPages(unittest.TestCase) :
 
     @classmethod
     def setUpClass(self):
@@ -26,7 +26,7 @@ class Dropdown_check(unittest.TestCase) :
         self.driver.get("https://learn.spayee.com/store")
         self.driver.implicitly_wait(10)
 
-    def test_dropdown(self):
+    def test_assessment(self):
         driver = self.driver
 
         assert "UPSC" in driver.title
@@ -38,9 +38,12 @@ class Dropdown_check(unittest.TestCase) :
         hover=ActionChains(self.driver).move_to_element(elem)
         hover.perform()
         elem.send_keys(Keys.ENTER)
-        assert driver.title == "Spayee Learn assessments"
+        self.assertEqual(driver.title, "Spayee Learn assessments")   
 
-        elem=driver.find_element_by_partial_link_text("Assessments")
+    def test_packages(self):
+        driver = self.driver
+        
+        elem=driver.find_elements_by_class_name('dropdown-toggle')[0]
         hover=ActionChains(self.driver).move_to_element(elem)
         hover.perform()
 
@@ -48,9 +51,12 @@ class Dropdown_check(unittest.TestCase) :
         hover=ActionChains(self.driver).move_to_element(elem)
         hover.perform()
         elem.send_keys(Keys.ENTER)
-        assert driver.title == "Spayee Learn packages"
+        self.assertEqual(driver.title, "Spayee Learn packages") 
 
-        elem=driver.find_element_by_partial_link_text("Packages")
+    def test_ebooks(self):
+        driver = self.driver
+        
+        elem=driver.find_elements_by_class_name('dropdown-toggle')[0]
         hover=ActionChains(self.driver).move_to_element(elem)
         hover.perform()
 
@@ -58,7 +64,7 @@ class Dropdown_check(unittest.TestCase) :
         hover=ActionChains(self.driver).move_to_element(elem)
         hover.perform()
         elem.send_keys(Keys.ENTER)
-        assert driver.title == "Spayee Learn eBooks"
+        self.assertEqual(driver.title, "Spayee Learn eBooks") 
 
     @classmethod
     def tearDownClass(self):
