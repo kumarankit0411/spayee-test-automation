@@ -34,41 +34,15 @@ from UserExist import UserExist
 # get the directory path to output report file
 dir = os.getcwd()
 
-# Get all tests
-AccessCode_test = unittest.TestLoader().loadTestsFromTestCase(AccessCode)
-MainPages_test = unittest.TestLoader().loadTestsFromTestCase(MainPages)
-AppsLink_test = unittest.TestLoader().loadTestsFromTestCase(AppsLink)
-AuthLogin_test = unittest.TestLoader().loadTestsFromTestCase(AuthLogin)
-DownloadBook_test = unittest.TestLoader().loadTestsFromTestCase(DownloadBook)
-Cart_test = unittest.TestLoader().loadTestsFromTestCase(Cart)
-ChangePassword_test = unittest.TestLoader().loadTestsFromTestCase(ChangePassword)
-CheckTabs_test = unittest.TestLoader().loadTestsFromTestCase(CheckTabs)
-DiscussionCreation_test = unittest.TestLoader().loadTestsFromTestCase(DiscussionCreation)
-Enquiry_test = unittest.TestLoader().loadTestsFromTestCase(Enquiry)
-Footer_test = unittest.TestLoader().loadTestsFromTestCase(Footer)
-ForgotPassword_test = unittest.TestLoader().loadTestsFromTestCase(ForgotPassword)
-FullScreenReader_test = unittest.TestLoader().loadTestsFromTestCase(FullScreenReader)
-Filter_test = unittest.TestLoader().loadTestsFromTestCase(Filter)
-LeftClick_test = unittest.TestLoader().loadTestsFromTestCase(LeftClick)
-FormalLogin_test = unittest.TestLoader().loadTestsFromTestCase(FormalLogin)
-MockTest_test = unittest.TestLoader().loadTestsFromTestCase(MockTest)
-PreviewBook_test = unittest.TestLoader().loadTestsFromTestCase(PreviewBook)
-PriceVerify_test = unittest.TestLoader().loadTestsFromTestCase(PriceVerify)
-Profile_test = unittest.TestLoader().loadTestsFromTestCase(Profile)
-Query_test = unittest.TestLoader().loadTestsFromTestCase(Query)
-ReaderSetting_test = unittest.TestLoader().loadTestsFromTestCase(ReaderSetting)
-AuthSignUp_test = unittest.TestLoader().loadTestsFromTestCase(AuthSignUp)
-FormalSignUp_test = unittest.TestLoader().loadTestsFromTestCase(FormalSignUp)
-BookSuggestion_test = unittest.TestLoader().loadTestsFromTestCase(BookSuggestion)
-UserExist_test = unittest.TestLoader().loadTestsFromTestCase(UserExist)
-SortBy_test = unittest.TestLoader().loadTestsFromTestCase(SortBy)
-
-#code to get all test files name into a list 'pyfiles'
+#code to get all test files name into a list 'pyfiles' and also instantiate test cases
 support_files = ['PathCreator.py','HTMLTestRunner.py', 'LoginPage.py', 'SpayeeTestReportGenerator.py']
 files = os.listdir(dir)
 pyfiles = []
 for file in files:
     if file[-2:] == 'py' and file not in support_files:
+        #instantiating test cases in variable
+        globals()[file[:-3]+'_test'] = unittest.TestLoader().loadTestsFromTestCase(globals()[file[:-3]])
+        #adding these variables names in pyfiles
         pyfiles.append(locals()[file[:-3]+'_test'])
 
 # create a test suite combining all files from 'pyfiles' list created earlier

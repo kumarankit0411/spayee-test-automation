@@ -1,6 +1,7 @@
 import os
 
-os.chdir('/Users/ankitkrsingh/Desktop/github-repos/spayee-test-automation/Student/')
+os.chdir('..')
+os.chdir('Student')
 os.system('python3 SpayeeTestReportGenerator.py')
 
 print('\n\tAll tests done!!\n')

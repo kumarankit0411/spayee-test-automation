@@ -6,7 +6,7 @@ class Path():
 
     def returnPath():
         path = os.getcwd()
-        if os.environ['OS']=='Windows_NT':
+        if os.name=='nt':
             path = path[:-8] + "\driver\chromedriver.exe"
         else:
             path = path[:-8] + "/driver/chromedriver"

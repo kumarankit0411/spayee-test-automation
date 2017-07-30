@@ -34,7 +34,7 @@ class PriceVerify(unittest.TestCase):
         pos = viewAll.location_once_scrolled_into_view
         x_cord = pos['x']
         y_cord = pos['y']
-        driver.execute_script('window.scrollTo({}, {});'.format(x_cord, y_cord-100))
+        driver.execute_script('window.scrollTo({}, {});'.format(x_cord, y_cord-200))
         viewAll.click()
         self.verify_price()
     

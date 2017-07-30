@@ -18,7 +18,6 @@ from PathCreator import Path
 
 path = Path.returnPath()
 
-
 class MainPages(unittest.TestCase) :
 
     @classmethod
