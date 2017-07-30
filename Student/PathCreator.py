@@ -7,7 +7,7 @@ class Path():
     def returnPath():
         path = os.getcwd()
         if os.name=='nt':
-            path = path[:-8] + "\driver\chromedriver.exe"
+            path = path[:-8] + "\Driver\chromedriver.exe"
         else:
-            path = path[:-8] + "/driver/chromedriver"
+            path = path[:-8] + "/Driver/chromedriver"
         return path

@@ -28,10 +28,10 @@ class Profile(unittest.TestCase):
         self.pwd = "spayee123"
         self.driver.get("https://learn.spayee.com")
         self.driver.implicitly_wait(10)
+        Login.login(driver, self.email, self.pwd)
         
     def test_verify_profile(self):
         driver = self.driver
-        Login.login(driver, self.email, self.pwd)
         driver.find_element_by_class_name('icon-cog').click()
         time.sleep(1)
         driver.find_element_by_partial_link_text('My Profile').click()
